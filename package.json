@@ -1,0 +1,12 @@
+{
+  "name": "carbon-credit-registry",
+  "private": true,
+  "scripts": {
+    "build:landing": "cd client/landing && npm run build",
+    "build:admin": "cd client/admin && npm run build",
+    "build:proponent": "cd client/proponent && npm run build",
+    "build:verifier": "cd client/verifier && npm run build",
+    "build:all": "npm run build:landing && npm run build:admin && npm run build:proponent && npm run build:verifier",
+    "start": "node server/index.js"
+  }
+}

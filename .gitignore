@@ -1,0 +1,9 @@
+server/node_modules
+client/admin/node_modules
+client/admin/dist
+client/landing/node_modules
+client/landing/dist
+client/proponent/node_modules
+client/proponent/dist
+client/verifier/node_modules
+client/verifier/dist
