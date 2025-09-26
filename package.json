@@ -1,12 +1,34 @@
 {
   "name": "carbon-credit-registry",
   "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "build:landing": "cd client/landing && npm run build",
-    "build:admin": "cd client/admin && npm run build",
-    "build:proponent": "cd client/proponent && npm run build",
-    "build:verifier": "cd client/verifier && npm run build",
-    "build:all": "npm run build:landing && npm run build:admin && npm run build:proponent && npm run build:verifier",
+    "dev:landing": "pnpm --filter landing dev",
+    "dev:admin": "pnpm --filter admin dev",
+    "dev:proponent": "pnpm --filter proponent dev",
+    "dev:verifier": "pnpm --filter verifier dev",
+    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter verifier build",
     "start": "node server/index.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
   }
 }
