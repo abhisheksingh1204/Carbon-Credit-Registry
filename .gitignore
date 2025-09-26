@@ -3,4 +3,4 @@ server/node_modules
 apps/admin/dist
 apps/landing/dist
 apps/proponent/dist
-apps/verifier/dist
+apps/auditor/dist

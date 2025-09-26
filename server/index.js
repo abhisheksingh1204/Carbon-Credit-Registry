@@ -10,8 +10,8 @@ function getAppBasePath(host) {
     return path.join(__dirname, "../apps/admin/dist");
   if (host.startsWith("proponent"))
     return path.join(__dirname, "../apps/proponent/dist");
-  if (host.startsWith("verifier"))
-    return path.join(__dirname, "../apps/verifier/dist");
+  if (host.startsWith("auditor"))
+    return path.join(__dirname, "../apps/auditor/dist");
   return path.join(__dirname, "../apps/landing/dist");
 }
 
@@ -34,5 +34,5 @@ app.listen(PORT, () => {
   console.log(`Landing: http://localhost:${PORT}`);
   console.log(`Admin: http://admin.localhost:${PORT}`);
   console.log(`Proponent: http://proponent.localhost:${PORT}`);
-  console.log(`Verifier: http://verifier.localhost:${PORT}`);
+  console.log(`Auditor: http://auditor.localhost:${PORT}`);
 });

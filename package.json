@@ -9,8 +9,8 @@
     "dev:landing": "pnpm --filter landing dev",
     "dev:admin": "pnpm --filter admin dev",
     "dev:proponent": "pnpm --filter proponent dev",
-    "dev:verifier": "pnpm --filter verifier dev",
-    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter verifier build",
+    "dev:auditor": "pnpm --filter auditor dev",
+    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter auditor build",
     "start": "node server/index.js"
   },
   "dependencies": {
