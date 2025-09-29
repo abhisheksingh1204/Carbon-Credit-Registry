@@ -1,9 +1,5 @@
 function Proponent() {
-  return (
-    <>
-    
-    </>
-  );
+  return <></>;
 }
 
 export default Proponent;

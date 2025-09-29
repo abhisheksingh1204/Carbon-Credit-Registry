@@ -1,0 +1,216 @@
+/* === Variables: Colors, Fonts, Radius, Shadows === */
+:root {
+  /* Colors */
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 13%);
+  --border: hsl(0 0% 90%);
+  --input: hsl(0 0% 80%);
+
+  --card: hsl(0 0% 98%);
+  --card-foreground: hsl(0 0% 13%);
+  --card-border: hsl(0 0% 95%);
+
+  --sidebar: hsl(0 0% 96%);
+  --sidebar-foreground: hsl(0 0% 13%);
+  --sidebar-border: hsl(0 0% 93%);
+  --sidebar-primary: hsl(122 71% 13%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(122 39% 85%);
+  --sidebar-accent-foreground: hsl(122 71% 13%);
+  --sidebar-ring: hsl(122 61% 45%);
+
+  --popover: hsl(0 0% 95%);
+  --popover-foreground: hsl(0 0% 13%);
+  --popover-border: hsl(0 0% 92%);
+
+  --primary: hsl(122 71% 13%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(0 0% 92%);
+  --secondary-foreground: hsl(0 0% 13%);
+  --muted: hsl(0 0% 94%);
+  --muted-foreground: hsl(0 0% 42%);
+  --accent: hsl(122 39% 85%);
+  --accent-foreground: hsl(122 71% 13%);
+  --destructive: hsl(0 84% 45%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --ring: hsl(122 61% 45%);
+  --orange-accent: hsl(36 100% 50%);
+
+  --chart-1: hsl(122 71% 13%);
+  --chart-2: hsl(36 100% 50%);
+  --chart-3: hsl(122 61% 45%);
+  --chart-4: hsl(36 84% 65%);
+  --chart-5: hsl(122 39% 25%);
+
+  /* Fonts */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+
+  /* Border radius */
+  --radius-lg: 9px;
+  --radius-md: 6px;
+  --radius-sm: 3px;
+
+  /* Shadows */
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.03);
+  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.06), 0px 1px 2px -1px hsl(0 0% 0% / 0.08);
+  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.06), 0px 1px 2px -1px hsl(0 0% 0% / 0.08);
+  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.07), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.08), 0px 4px 6px -1px hsl(0 0% 0% / 0.12);
+  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.15);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.12);
+}
+
+/* === Dark Mode === */
+.dark {
+  --background: hsl(0 0% 9%);
+  --foreground: hsl(0 0% 95%);
+  --border: hsl(0 0% 15%);
+  --input: hsl(0 0% 25%);
+
+  --card: hsl(0 0% 11%);
+  --card-foreground: hsl(0 0% 95%);
+  --card-border: hsl(0 0% 16%);
+
+  --sidebar: hsl(0 0% 13%);
+  --sidebar-foreground: hsl(0 0% 95%);
+  --sidebar-border: hsl(0 0% 18%);
+  --sidebar-primary: hsl(122 71% 13%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(122 25% 20%);
+  --sidebar-accent-foreground: hsl(122 39% 85%);
+  --sidebar-ring: hsl(122 61% 45%);
+
+  --popover: hsl(0 0% 15%);
+  --popover-foreground: hsl(0 0% 95%);
+  --popover-border: hsl(0 0% 20%);
+
+  --primary: hsl(122 71% 13%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(0 0% 18%);
+  --secondary-foreground: hsl(0 0% 95%);
+  --muted: hsl(0 0% 16%);
+  --muted-foreground: hsl(0 0% 70%);
+  --accent: hsl(122 25% 20%);
+  --accent-foreground: hsl(122 39% 85%);
+  --destructive: hsl(0 84% 45%);
+  --destructive-foreground: hsl(0 0% 98%);
+}
+
+/* === Base Styles === */
+body {
+  font-family: var(--font-sans);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+.text-muted-foreground { color: hsl(var(--muted-foreground)); }
+.text-foreground { color: hsl(var(--foreground)); }
+
+/* Background helpers */
+.bg-background { background-color: hsl(var(--background)); }
+.bg-muted { background-color: hsl(var(--muted)); }
+.bg-card { background-color: hsl(var(--card)); }
+.bg-popover { background-color: hsl(var(--popover)); }
+
+/* Borders & Radius */
+.border { border: 1px solid hsl(var(--border)); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-sm { border-radius: var(--radius-sm); }
+
+/* Buttons */
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid hsl(var(--primary));
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.button:hover { background-color: hsl(var(--primary)); }
+
+/* Inputs */
+input {
+  border: 1px solid hsl(var(--input));
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Cards */
+.card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--card-border));
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+/* Popovers */
+.popover {
+  background-color: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--popover-border));
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+}
+
+/* Accordion Animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+.accordion-down { animation: accordion-down 0.2s ease-out; }
+.accordion-up { animation: accordion-up 0.2s ease-out; }
+
+/* Elevate system for hover/active states */
+.toggle-elevate::before,
+.toggle-elevate-2::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+}
+.toggle-elevate.toggle-elevated::before { background-color: var(--elevate-2); }
+
+.hover-elevate:not(.no-default-hover-elevate)::after,
+.active-elevate:not(.no-default-active-elevate)::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 999;
+}
+.hover-elevate:hover::after { background-color: var(--elevate-1); }
+.active-elevate:active::after { background-color: var(--elevate-1); }
+.hover-elevate-2:hover::after,
+.active-elevate-2:active::after { background-color: var(--elevate-2); }
+
+/* Flex & spacing helpers (common ShadCN classes) */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
