@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 5000;
 function getAppBasePath(host) {
   host = (host || "").toLowerCase();
   if (host.startsWith("admin"))
-    return path.join(__dirname, "../apps/admin/dist");
+    return path.join(__dirname, "../client/apps/admin/dist");
   if (host.startsWith("proponent"))
-    return path.join(__dirname, "../apps/proponent/dist");
+    return path.join(__dirname, "../client/apps/proponent/dist");
   if (host.startsWith("auditor"))
-    return path.join(__dirname, "../apps/auditor/dist");
-  return path.join(__dirname, "../apps/landing/dist");
+    return path.join(__dirname, "../client/apps/auditor/dist");
+  return path.join(__dirname, "../client/apps/landing/dist");
 }
 
 // Serve static files

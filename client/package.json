@@ -1,5 +1,5 @@
 {
-  "name": "carbon-credit-registry",
+  "name": "client",
   "private": true,
   "version": "1.0.0",
   "workspaces": [
@@ -10,8 +10,7 @@
     "dev:admin": "pnpm --filter admin dev",
     "dev:proponent": "pnpm --filter proponent dev",
     "dev:auditor": "pnpm --filter auditor dev",
-    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter auditor build",
-    "start": "node server/index.js"
+    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter auditor build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",

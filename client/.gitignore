@@ -1,0 +1,5 @@
+apps/admin/dist
+apps/landing/dist
+apps/proponent/dist
+apps/auditor/dist
+node_modules
