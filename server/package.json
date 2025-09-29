@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node index.js",
     "build": "esbuild index.js --bundle --platform=node --outdir=dist",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "deploy": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
