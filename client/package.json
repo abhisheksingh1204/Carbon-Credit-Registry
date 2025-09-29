@@ -1,21 +1,19 @@
 {
   "name": "client",
   "private": true,
-  "version": "1.0.0",
-  "workspaces": [
-    "apps/*"
-  ],
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev:landing": "pnpm --filter landing dev",
-    "dev:admin": "pnpm --filter admin dev",
-    "dev:proponent": "pnpm --filter proponent dev",
-    "dev:auditor": "pnpm --filter auditor dev",
-    "build:all": "pnpm --filter landing build && pnpm --filter admin build && pnpm --filter proponent build && pnpm --filter auditor build"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
@@ -24,7 +22,6 @@
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",
     "eslint": "^9.36.0",
-    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
