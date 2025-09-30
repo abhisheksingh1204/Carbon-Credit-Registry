@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../components/ui/button";
-import { Users } from "lucide-react";
+import { Leaf } from "lucide-react";
 
 export default function Header() {
   return (
@@ -11,8 +10,10 @@ export default function Header() {
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
           data-testid="link-home"
         >
-          <Users className="h-8 w-8" />
-          <span className="text-xl font-bold">BlueCarbonCare Connect</span>
+          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+            <Leaf className="h-4 w-4 text-primary-foreground" />
+          </div>
+          <span className="text-xl font-bold">BlueCarbonCare</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -30,9 +31,6 @@ export default function Header() {
           >
             Contact
           </Link>
-          <Button variant="outline" size="sm" data-testid="button-help">
-            Help
-          </Button>
         </nav>
       </div>
     </header>
