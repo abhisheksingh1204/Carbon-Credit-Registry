@@ -28,7 +28,7 @@ export default function Header() {
       </Link>
       <a
         href="#role-selector"
-        className="block bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition-colors text-center"
+        className="flex items-center w-full px-4 py-1 text-white bg-green-600 rounded hover:bg-green-700 transition-colors"
         data-testid="button-roles"
         onClick={() => setIsMobileMenuOpen(false)}
       >
@@ -88,9 +88,9 @@ export default function Header() {
       {/* Mobile menu dropdown */}
       <div
         ref={menuRef}
-        className={`md:hidden overflow-hidden transform transition-all duration-300 border-t border-border bg-background flex flex-col gap-1 px-4 ${
+        className={`md:hidden overflow-hidden transform transition-all duration-300 border-t border-border bg-background flex flex-col gap-2 px-4 ${
           isMobileMenuOpen
-            ? "max-h-96 opacity-100 scale-100 mt-4" // extra space when dropdown is active
+            ? "max-h-96 opacity-100 scale-100 mt-4"
             : "max-h-0 opacity-0 scale-95 mt-0"
         }`}
       >
