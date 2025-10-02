@@ -14,6 +14,7 @@ export default function RoleCard({
   icon: Icon,
   roleParam,
 }) {
+  const isNGO = roleParam === "ngo";
   return (
     <Card className="hover-elevate transition-all duration-200 h-full">
       <CardHeader className="text-center pb-4">
@@ -28,25 +29,33 @@ export default function RoleCard({
 
       <CardContent className="pt-0">
         <div className="flex flex-col gap-3">
-          <Link to={`/auth/login?role=${roleParam}`}>
+          {/* Login button */}
+          <Link to="/dummy">
             <Button
               variant="default"
-              className="w-full"
+              className="w-full cursor-pointer"
               data-testid={`button-login-${roleParam}`}
             >
               Log In
             </Button>
           </Link>
 
-          <Link to={`/auth/register?role=${roleParam}`}>
-            <Button
-              variant="outline"
-              className="w-full"
-              data-testid={`button-signup-${roleParam}`}
-            >
-              Sign Up
-            </Button>
-          </Link>
+          {/* Signup button - only for NGOs */}
+          {isNGO ? (
+            <Link to="/dummy">
+              <Button
+                variant="outline"
+                className="w-full cursor-pointer"
+                data-testid={`button-signup-${roleParam}`}
+              >
+                Sign Up
+              </Button>
+            </Link>
+          ) : (
+            <div className="w-full flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Login only</span>
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

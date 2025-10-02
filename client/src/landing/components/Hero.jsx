@@ -9,6 +9,13 @@ export default function Hero() {
     }
   };
 
+  const handleLearnMore = () => {
+    const roleSection = document.getElementById("role-selector");
+    if (roleSection) {
+      roleSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="w-full bg-gradient-to-br from-primary/5 to-accent/5 px-4 py-16 md:py-24">
       <div className="max-w-4xl mx-auto text-center">
@@ -17,13 +24,13 @@ export default function Hero() {
           <span className="text-primary block mt-2">Together</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-muted-foreground mb-2 max-w-2xl mx-auto leading-relaxed">
           Connect NGOs, administrators, and validators in one transparent
-          platform. Foster accountability, collaboration, and meaningful impact
-          in your community.
+          platform. Encouraging accountability, collaboration, and meaningful
+          impact in your community.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div className="flex flex-col items-center justify-center gap-2 mb-12">
           <Button
             size="lg"
             className="bg-orange-accent hover:bg-orange-accent/90 text-white font-semibold px-8"
@@ -37,8 +44,9 @@ export default function Hero() {
           <Button
             variant="outline"
             size="lg"
-            className="px-8"
+            className="px-8 mt-2 cursor-pointer"
             data-testid="button-learn-more"
+            onClick={handleLearnMore}
           >
             Learn More
           </Button>

@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { Heart, Shield, CheckSquare } from "lucide-react";
 import RoleCard from "./RoleCard";
-import AuthModal from "./AuthModal";
-import { useNavigate } from "react-router-dom";
 
 const roles = [
   {
@@ -26,42 +23,8 @@ const roles = [
 ];
 
 export default function RoleSelector() {
-  const navigate = useNavigate();
-  const [authModal, setAuthModal] = useState({
-    isOpen: false,
-    mode: "login",
-    role: "",
-  });
-
-  const handleRoleClick = (href) => {
-    const url = new URL(href, window.location.origin);
-    const role = url.searchParams.get("role") || "";
-    const isLogin = url.pathname.includes("/login");
-
-    setAuthModal({
-      isOpen: true,
-      mode: isLogin ? "login" : "register",
-      role,
-    });
-  };
-
-  const handleCardClick = (e) => {
-    const target = e.target;
-    const link = target.closest('a[href^="/auth/"]');
-    if (link) {
-      e.preventDefault();
-      handleRoleClick(link.href);
-      // Optional: navigate programmatically if needed
-      // navigate(link.getAttribute("href"));
-    }
-  };
-
   return (
-    <section
-      id="role-selector"
-      className="w-full px-4 py-16"
-      onClick={handleCardClick}
-    >
+    <section id="role-selector" className="w-full px-4 py-16">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -86,13 +49,6 @@ export default function RoleSelector() {
           ))}
         </div>
       </div>
-
-      <AuthModal
-        isOpen={authModal.isOpen}
-        onClose={() => setAuthModal((prev) => ({ ...prev, isOpen: false }))}
-        mode={authModal.mode}
-        role={authModal.role}
-      />
     </section>
   );
 }
