@@ -13,9 +13,9 @@ function App() {
         <Route path="/" element={<Landing />} />
 
         {/* role-based routes */}
-        <Route path="/admin/*" element={<Admin />} />
-        <Route path="/proponent/*" element={<Proponent />} />
-        <Route path="/auditor/*" element={<Auditor />} />
+        <Route path="/admin/" element={<Admin />} />
+        <Route path="/proponent/" element={<Proponent />} />
+        <Route path="/auditor/" element={<Auditor />} />
         
         {/* fallback */}
         <Route path="*" element={<Landing />} />
