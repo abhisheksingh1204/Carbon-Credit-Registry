@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Community Connect. Building stronger communities together.
+            © 2025 BlueCarbonCare - Connect. Building stronger communities together.
           </p>
 
           <div className="flex items-center gap-6">
