@@ -12,7 +12,7 @@ export default function Header() {
     <>
       <Link
         to="/about"
-        className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
         data-testid="link-about"
         onClick={() => setIsMobileMenuOpen(false)}
       >
@@ -20,7 +20,7 @@ export default function Header() {
       </Link>
       <Link
         to="/contact"
-        className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
         data-testid="link-contact"
         onClick={() => setIsMobileMenuOpen(false)}
       >
@@ -28,7 +28,7 @@ export default function Header() {
       </Link>
       <a
         href="#role-selector"
-        className="block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
+        className="block bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition-colors text-center"
         data-testid="button-roles"
         onClick={() => setIsMobileMenuOpen(false)}
       >
@@ -74,25 +74,25 @@ export default function Header() {
 
         {/* Hamburger button for mobile */}
         <button
-          className="md:hidden p-2 rounded hover:bg-gray-200 transition-colors"
+          className="md:hidden p-1 rounded hover:bg-gray-200 transition-colors"
           onClick={toggleMobileMenu}
         >
           {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           ) : (
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           )}
         </button>
       </div>
 
-      {/* Mobile menu dropdown with animation */}
+      {/* Mobile menu dropdown */}
       <div
         ref={menuRef}
-        className={`md:hidden mt-2 overflow-hidden transform transition-all duration-300 ${
+        className={`md:hidden overflow-hidden transform transition-all duration-300 border-t border-border bg-background flex flex-col gap-1 px-4 ${
           isMobileMenuOpen
-            ? "max-h-96 opacity-100 scale-100"
-            : "max-h-0 opacity-0 scale-95"
-        } border-t border-border bg-background flex flex-col gap-2 px-4 py-2`}
+            ? "max-h-96 opacity-100 scale-100 mt-4" // extra space when dropdown is active
+            : "max-h-0 opacity-0 scale-95 mt-0"
+        }`}
       >
         {menuItems}
       </div>
