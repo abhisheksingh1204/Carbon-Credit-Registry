@@ -33,24 +33,6 @@
   --radius: 0.75rem;
 }
 
-/* Dark Mode */
-.dark {
-  --background: hsl(0, 0%, 0%);
-  --foreground: hsl(0, 0%, 91%);
-  --card: hsl(0, 0%, 5%);
-  --card-foreground: hsl(0, 0%, 85%);
-  --primary: hsl(122, 100%, 22%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(122, 39%, 49%);
-  --secondary-foreground: hsl(0, 0%, 9%);
-  --muted: hsl(0, 0%, 9%);
-  --muted-foreground: hsl(0, 0%, 46%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --border: hsl(0, 0%, 15%);
-  --input: hsl(0, 0%, 18%);
-}
-
 /* Base styles */
 @layer base {
   * {
