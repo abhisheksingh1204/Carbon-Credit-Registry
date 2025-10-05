@@ -99,9 +99,14 @@ export default function ContactContent() {
                     <h3 className="font-semibold text-foreground">
                       Our Office
                     </h3>
-                    <p className="text-muted-foreground">
+                    <a
+                      href="https://maps.app.goo.gl/rGCGbr1usMdnkyy88"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-secondary transition-colors"
+                    >
                       23, Sir M. Visvesvaraya Marg, Indore (M.P.) - 452001
-                    </p>
+                    </a>
                   </div>
                 </div>
               </div>
