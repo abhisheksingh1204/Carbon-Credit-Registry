@@ -6,7 +6,7 @@ export default function HeaderMinimal() {
     <header className="w-full bg-background border-b border-border px-4 py-4">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link
-          to="/"
+          to="/landing"
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
         >
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">

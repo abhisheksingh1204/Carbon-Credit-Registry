@@ -11,7 +11,7 @@ export default function Header() {
   const menuItems = (
     <>
       <Link
-        to="/about"
+        to="about"
         className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
         data-testid="link-about"
         onClick={() => setIsMobileMenuOpen(false)}
@@ -19,7 +19,7 @@ export default function Header() {
         About
       </Link>
       <Link
-        to="/contact"
+        to="contact"
         className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
         data-testid="link-contact"
         onClick={() => setIsMobileMenuOpen(false)}
@@ -51,7 +51,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link
-          to="/"
+          to="/landing"
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
           data-testid="link-home"
         >

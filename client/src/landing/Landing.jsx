@@ -7,10 +7,10 @@ import Contact from "../pages/Contact";
 function Landing() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/about" element={<About />} />
-      
+      <Route index element={<LandingPage />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="about" element={<About />} />
+
       {/* Fallback to 404 */}
       <Route path="*" element={<NotFound />} />
     </Routes>
