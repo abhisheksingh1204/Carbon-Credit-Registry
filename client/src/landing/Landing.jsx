@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import NotFound from "../common/pages/NotFound";
-import About from "../common/pages/About";
-import Contact from "../common/pages/Contact";
+import NotFound from "../pages/NotFound";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 
 function Landing() {
   return (

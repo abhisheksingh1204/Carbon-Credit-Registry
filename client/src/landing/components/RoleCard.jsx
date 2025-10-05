@@ -15,16 +15,16 @@ export default function RoleCard({
   roleParam,
 }) {
   // Decide routes based on role
-  let loginPath = "/";
+  let loginPath = null;
   let signupPath = null;
 
   if (roleParam === "ngo") {
-    loginPath = "/proponent";
-    signupPath = "/proponent/signup";
+    loginPath = "/proponent/auth/login";
+    signupPath = "/proponent/auth/signup";
   } else if (roleParam === "admin") {
-    loginPath = "/admin";
+    loginPath = "/admin/auth/login";
   } else if (roleParam === "auditor") {
-    loginPath = "/auditor";
+    loginPath = "/auditor/auth/login";
   }
 
   return (

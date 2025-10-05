@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import RoleSelector from "../components/RoleSelector";
-import Footer from "../../common/components/Footer";
+import Footer from "../../components/Footer";
 
 export default function LandingPage() {
   return (
