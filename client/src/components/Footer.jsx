@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} BlueCarbonCare - Connect. Building
+            © {new Date().getFullYear()} BlueCarbonCare. Building
             stronger communities together.
           </p>
         </div>
