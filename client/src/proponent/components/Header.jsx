@@ -42,8 +42,8 @@ export default function Header() {
   ];
 
   const publicNavigation = [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "About", href: "/landing/about" },
+    { name: "Contact", href: "/landing/contact" },
   ];
 
   const mobileNavLinks = publicNavigation.concat(
