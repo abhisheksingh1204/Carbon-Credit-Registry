@@ -1,58 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Leaf, Menu, X } from "lucide-react";
+import { Button } from "../../components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-
-  const menuItems = (
-    <>
-      <Link
-        to="about"
-        className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
-        data-testid="link-about"
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        About
-      </Link>
-      <Link
-        to="contact"
-        className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
-        data-testid="link-contact"
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        Contact
-      </Link>
-      <a
-        href="#role-selector"
-        className="flex items-center w-full px-4 py-1 text-white bg-green-600 rounded hover:bg-green-700 transition-colors"
-        data-testid="button-roles"
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        Roles
-      </a>
-    </>
-  );
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isMobileMenuOpen]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuLinks = [
+    { name: "About", href: "/landing/about" },
+    { name: "Contact", href: "/landing/contact" },
+    { name: "Roles", href: "#role-selector", external: true },
+  ];
 
   return (
     <header className="w-full bg-background border-b border-border px-4 py-4">
@@ -70,31 +28,102 @@ export default function Header() {
         </Link>
 
         {/* Desktop menu */}
-        <nav className="hidden md:flex items-center gap-6">{menuItems}</nav>
-
-        {/* Hamburger button for mobile */}
-        <button
-          className="md:hidden p-1 rounded hover:bg-gray-200 transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
+        <nav className="hidden md:flex items-center gap-6">
+          {menuLinks.map((item) =>
+            item.external ? (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block px-4 py-1 text-white bg-green-600 rounded hover:bg-green-700 transition-colors"
+                data-testid={`button-${item.name.toLowerCase()}`}
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="block px-4 py-1 text-muted-foreground hover:text-foreground transition-colors"
+                data-testid={`link-${item.name.toLowerCase()}`}
+              >
+                {item.name}
+              </Link>
+            )
           )}
-        </button>
-      </div>
+        </nav>
 
-      {/* Mobile menu dropdown */}
-      <div
-        ref={menuRef}
-        className={`md:hidden overflow-hidden transform transition-all duration-300 border-t border-border bg-background flex flex-col gap-2 px-4 ${
-          isMobileMenuOpen
-            ? "max-h-96 opacity-100 scale-100 mt-4"
-            : "max-h-0 opacity-0 scale-95 mt-0"
-        }`}
-      >
-        {menuItems}
+        {/* Mobile menu button using Sheet */}
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden relative">
+              <Menu
+                className={`absolute transition-all duration-300 ease-in-out ${
+                  mobileMenuOpen
+                    ? "opacity-0 scale-90"
+                    : "opacity-100 scale-100"
+                }`}
+                style={{ transitionProperty: "opacity, transform" }}
+                size={20}
+              />
+              <X
+                className={`absolute transition-all duration-300 ease-in-out ${
+                  mobileMenuOpen
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-90"
+                }`}
+                style={{ transitionProperty: "opacity, transform" }}
+                size={20}
+              />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="left"
+            className="w-72 p-0 flex flex-col"
+            hideCloseIcon={true}
+            open={mobileMenuOpen}
+          >
+            <div className="p-4 border-b flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                  <Leaf className="h-4 w-4 text-primary-foreground" />
+                </div>
+                <span className="font-bold text-primary">BlueCarbonCare</span>
+              </div>
+              <button
+                aria-label="Close menu"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <X size={20} className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="p-4 flex flex-col space-y-4">
+              {menuLinks.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-lg text-white bg-green-600 rounded hover:bg-green-700 transition-colors text-left px-4 py-2"
+                    data-testid={`button-${item.name.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-lg text-muted-foreground hover:text-foreground transition-colors text-left px-4 py-2"
+                    data-testid={`link-${item.name.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
