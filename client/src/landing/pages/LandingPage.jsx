@@ -6,14 +6,17 @@ import Footer from "../../components/Footer";
 export default function LandingPage() {
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-background">
-        <Header />
-        <main className="flex-1">
-          <Hero />
-          <RoleSelector />
-        </main>
-        <Footer />
-      </div>
+      <div className="min-h-screen bg-background flex flex-col">
+            <a href="#main-content" className="sr-only focus:not-sr-only">
+              Skip to main content
+            </a>
+            <Header />
+            <main id="main-content" className="flex-1">
+              <Hero />
+              <RoleSelector />
+            </main>
+            <Footer />
+          </div>
     </>
   );
 }
