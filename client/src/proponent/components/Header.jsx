@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Bell, Leaf, Menu, ChevronDown } from "lucide-react";
+import { Bell, Leaf, Menu, ChevronDown, X } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import {
@@ -132,12 +132,40 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden relative"
+                >
+                  {/* Hamburger ↔ X icon with smooth transition */}
+                  <Menu
+                    className={`absolute transition-all duration-300 ease-in-out ${
+                      mobileMenuOpen
+                        ? "opacity-0 scale-90"
+                        : "opacity-100 scale-100"
+                    }`}
+                    style={{ transitionProperty: "opacity, transform" }}
+                    size={20}
+                  />
+                  <X
+                    className={`absolute transition-all duration-300 ease-in-out ${
+                      mobileMenuOpen
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-90"
+                    }`}
+                    style={{ transitionProperty: "opacity, transform" }}
+                    size={20}
+                  />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-72 p-0 flex flex-col">
-                <div className="p-4 border-b">
+              <SheetContent
+                side="left"
+                className="w-72 p-0 flex flex-col"
+                hideCloseIcon={true}
+                open={mobileMenuOpen}
+              >
+                {/* Custom header with close button */}
+                <div className="p-4 border-b flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                       <Leaf className="h-4 w-4 text-primary-foreground" />
@@ -146,6 +174,13 @@ export default function Header() {
                       BlueCarbonCare
                     </span>
                   </div>
+                  <button
+                    aria-label="Close menu"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+                  >
+                    <X size={20} className="h-5 w-5" />
+                  </button>
                 </div>
 
                 <div className="p-4 flex flex-col space-y-4">
