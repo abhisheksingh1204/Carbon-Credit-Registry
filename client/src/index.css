@@ -46,6 +46,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
 }
 
 /* Component utilities */
@@ -127,7 +142,7 @@
   .font-sans { font-family: var(--font-sans); }
   .font-serif { font-family: var(--font-serif); }
   .font-mono { font-family: var(--font-mono); }
-
+  
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -162,19 +177,4 @@
     outline: none;
     box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
   }
-}
-
-/* Keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-html {
-  scroll-behavior: smooth;
 }

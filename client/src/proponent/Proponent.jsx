@@ -7,7 +7,7 @@ import NotFound from "../pages/NotFound";
 function ProponentLayout() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <a href="#main-content" className="skip-to-content">
+      <a href="#main-content" className="sr-only focus:not-sr-only">
         Skip to main content
       </a>
       <Header />
