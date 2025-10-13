@@ -1,4 +1,5 @@
   import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+  import { Toaster } from "./components/ui/sonner";
   import Landing from "./landing/Landing";
   import Admin from "./admin/Admin";
   import Proponent from "./proponent/Proponent";
@@ -21,6 +22,7 @@
           {/* fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Toaster />
       </Router>
     );
   }
