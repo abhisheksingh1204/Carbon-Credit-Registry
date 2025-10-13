@@ -10,7 +10,7 @@ import { Alert, AlertDescription } from '../../../components/ui/alert';
 import { Leaf, Loader2 } from 'lucide-react';
 import { login, clearError } from '../../../store/authSlice';
 import { useAuth } from '../../../hooks/useAuth';
-// import GoogleSignInButton from '../../components/auth/GoogleSignInButton';
+import GoogleSignInButton from '../../components/auth/GoogleSignInButton';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -140,7 +140,7 @@ export default function Login() {
               </div>
             </div>
 
-            {/* <GoogleSignInButton /> */}
+            <GoogleSignInButton />
 
             <div className="mt-4 text-center text-sm">
               <span className="text-muted-foreground">
