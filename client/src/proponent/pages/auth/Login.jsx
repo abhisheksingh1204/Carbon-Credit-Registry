@@ -1,16 +1,29 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../components/ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../components/ui/form';
-import { Input } from '../../../components/ui/input';
-import { Button } from '../../../components/ui/button';
-import { Alert, AlertDescription } from '../../../components/ui/alert';
-import { Leaf, Loader2 } from 'lucide-react';
-import { login, clearError } from '../../../store/authSlice';
-import { useAuth } from '../../../hooks/useAuth';
-import GoogleSignInButton from '../../components/auth/GoogleSignInButton';
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../../components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../../../components/ui/form";
+import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
+import { Alert, AlertDescription } from "../../../components/ui/alert";
+import { Leaf, Loader2, AlertCircle } from "lucide-react";
+import { login, clearError } from "../../../store/authSlice";
+import { useAuth } from "../../../hooks/useAuth";
+import GoogleSignInButton from "../../components/auth/GoogleSignInButton";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -19,8 +32,8 @@ export default function Login() {
 
   const form = useForm({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -36,7 +49,7 @@ export default function Login() {
     try {
       await dispatch(login(data)).unwrap();
     } catch (err) {
-      console.error('Login failed:', err);
+      console.error("Login failed:", err);
     }
   };
 
@@ -46,7 +59,7 @@ export default function Login() {
         <div className="flex items-center justify-center space-x-2 mb-8">
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
             <Leaf className="h-6 w-6 text-primary-foreground" />
-          </div> 
+          </div>
           <span className="text-2xl font-bold text-primary">
             BlueCarbonCare
           </span>
@@ -62,6 +75,7 @@ export default function Login() {
           <CardContent className="space-y-4">
             {error && (
               <Alert variant="destructive" data-testid="alert-error">
+                <AlertCircle className="h-4 w-4" />
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
