@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-full flex items-center justify-center bg-muted/30 px-4 py-20">
+    <div className="min-h-full flex items-center justify-center bg-muted/30 px-4 py-16">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center space-x-2 mb-8">
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">

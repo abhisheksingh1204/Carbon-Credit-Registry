@@ -51,7 +51,7 @@ export default function Header() {
   );
 
   return (
-    <header className="bg-card border-b border-border sticky top-0 z-40">
+    <header className="bg-background border-b border-border sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Left Section: Logo */}
